@@ -1,0 +1,32 @@
+In this project, the Bank management System Python Project using Tkinter, the user can create an account by entering information such as his or her username, opening balance, and pin number. The user must then submit those data in order to gain access to their account. The user can see transaction information, balance inquiries, credit and debit amounts, and more. The user can credit or debit sums by merely specifying a specific amount. 
+
+Before starting with the coding of the Bank Management System Project in Python, let us take a look at the features our UI will have:
+
+Login/Create a bank account
+Credit and debit amount
+Balance inquiry
+View transaction logs
+
+
+Introduction to Bank Management System
+Project Overview: Bank Management System Python
+Importing libraries:
+Code Flow:
+Function to handle invalid credentials:
+Function to destroy a widget and return to home:
+Logic to create an account:
+Logic to credit the amount:
+Logic to debit the amount:
+Function to display Credit Amount window:
+Function to display Debit Amount window:
+Function to display Balance:
+Function to display Transaction History window:
+Function to display Logged In Menu:
+Function to handle Login and Logout:
+Function to display Login window:
+Function to display Create New Account window:
+Function to display Main Menu window & call to Main_Menu():
+Complete code for Bank Management System :
+Required files:
+References:
+Endnote:

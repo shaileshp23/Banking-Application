@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Welcome To Banking System</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+        <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+        <style>
+            a{
+                color:#182696
+            }
+            #p1
+            {
+                text-align:justify;
+            }
+            #p2
+            {
+                color:rgb(63, 9, 138);
+            } 
+            footer
+            {
+                position:center;
+                bottom: 0;
+                margin-top: 70%;
+            }
+        </style>
+    </head>
+  
+        <header>
+            <img src="static/images/bank.jpg"  width="100%"  height="200px">    
+        </header>
+
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #306b9c;">
+            <div class="container-fluid">
+                <a href="{{url_for('bankmain')}}" class="navbar-brand" style="color:#fff">Banking System</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" style="color:#fff">Transactions</a>
+                            <div class="dropdown-menu" style="background-color: #306b9c;">
+                                <a href="{{ url_for('account') }}" class="nav-item nav-link active" style="color:#fff">Account Open</a>
+                                <a href="{{ url_for('dcheck')}}" class="nav-item nav-link active" style="color:#fff">Deposit</a>
+                                <a href="{{ url_for('wcheck') }}" class="nav-item nav-link active" style="color:#fff">Withdraw</a>
+                                <a href="{{ url_for('detailscheck') }}" class="nav-item nav-link active" style="color:#fff">Account Details</a>
+                                <a href="{{ url_for('balcheck') }}" class="nav-item nav-link active" style="color:#fff">Balance Enquiry</a>
+                                <a href="{{ url_for('minicheck') }}" class="nav-item nav-link active" style="color:#fff">Mini Statement</a>
+                                <a href="{{ url_for('passcheck') }}" class="nav-item nav-link active" style="color:#fff">Passbook</a>
+                            </div>
+                        </li>
+                        <li class="nav-item "><a href="{{ url_for('loan') }}" class="nav-link active" style="margin-right:100px; color:#fff"> Loan</a></li>
+                        <li class="nav-item"><a href="{{ url_for('logout') }}" class="nav-link active" style="margin-left: 100px; color:#fff"> Logout</a></li>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <p id="p1">
+                        <i class="fa-solid fa-piggy-bank fa-5x"></i>
+                        <br>
+                        <a class="bottom" href="{{ url_for('account') }}"> Open Account </a>
+                    </p>  
+                </div>
+
+                <div class="col-sm">
+                    <p id="p1">
+                        <i class="fa-solid fa-money-bill-transfer fa-5x"></i>
+                        <br>
+                        <a class="bottom" href="{{ url_for('wcheck') }}"> Withdraw </a>
+                    </p>
+                </div>
+
+                <div class="col-sm">
+                    <p id="p1">
+                        <i class="fa-solid fa-money-bills fa-5x"></i>
+                        <br>
+                        <a class="bottom" href="{{ url_for('dcheck') }}"> Deposit</a>
+                    </p>
+                </div>
+                <div class="col-sm">
+                
+                    <p id="p1">
+                        <i class="fa-solid fa-user fa-5x"></i>
+                        <br>
+                        <a class="bottom" href="{{ url_for('detailscheck') }}"> Account Details</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm">
+                    <p id="p1">
+                        <i class="fa-solid fa-wallet fa-5x"></i>
+                        <br>
+                        <a class="bottom" href="{{ url_for('balcheck') }}"> Balance Enquiry</a>
+                    </p>
+                </div>
+
+                <div class="col-sm">
+                    <p id="p1">
+                        <i class="fa-regular fa-file-lines fa-5x"></i>
+                        <br>
+                        <a class="bottom" href="{{ url_for('minicheck') }}"> Mini Statement</a>
+                    </p>
+                </div>
+
+                <div class="col-sm">
+                    <p id="p1">
+                        <i class="fa-solid fa-file fa-5x"></i>
+                        <br>
+                        <a class="bottom" href="{{ url_for('passcheck') }}"> Passbook</a>
+                    </p>
+                </div>
+                <div class="col-sm">
+
+                </div>
+            </div>
+
+            
+            <div class="row">
+                <div class="col-sm" style="background-color:rgb(75, 173, 5)">
+                    <h3>DO's</h3>
+                    <p id="p2">
+                        - abcd<br>
+                        - bcdf<br>
+                        - djacn<br>
+                    </p>
+                </div>
+                <div class="col-sm" style="background-color:red">
+                    <h3>Dont's</h3>
+                    <p id="p2">
+                        - cakc<br>
+                        - nvdvm<br>
+                        - jdcak<br>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <center>
+                <p>&copy2023<span style="color:red;">  All Rights Reserved</p>
+            </center>
+        </footer>
+    </body>
+</html>         

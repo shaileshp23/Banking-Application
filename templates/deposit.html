@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Deposit</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+        
+        <style>
+            body{
+                background-image: url("static/images/bankbg.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:cover;
+            }
+            label
+            {
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        
+        {% include ('layoutmenu.html') %}        
+
+        
+<br>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+
+                <div class="col-sm-6"> 
+
+                    <h2><center>Deposit</center></h2>
+                    <label style="color:rgb(225, 144, 144)">{{ msg }}</label>
+                    <form action="{{ url_for('deposit') }}" 	method="post">
+                        <div class="illustration"><i class="icon ion-ios-locked-outline"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="accno">Account Number:</label>
+                            <input class="form-control"  type="text" name="accno" value="{{session.accno}}" placeholder="Account Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input class="form-control"  type="text" name="fname" value="{{session.fname}}" placeholder="First Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input class="form-control"  type="text" name="lname" value="{{session.lname}}" placeholder="Last Name" required>
+                        </div>
+                        <div class="form-group" >
+                            <label for="balance">Balance:</label>
+                            <input type="text" class="form-control" name="balance" value="{{session.balance}}" placeholder="Balance" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dname">Depositer Name:</label>
+                            <input class="form-control"  type="text" name="dname" placeholder="Depositer Name" required>
+                        </div>
+                        <div class="form-group" >
+                            <label for="damount">Deposit Amount:</label>
+                            <input type="text" class="form-control" name="damount" placeholder="Deposit Amount" required>
+                        </div>
+                        <center>
+                            <button class="btn btn-primary mb-2 mt-3" style="background-color:rgb(33,74,128);width:169px;border:none;color:white;padding:5px 10px 5px 10px;border-radius:2px;" type="submit">Deposit</button>                              
+                        </center>
+                    </form>
+
+                </div>
+
+                <div class="col-sm-3">
+                </div>
+
+            </div>
+            
+        </div>
+
+        {% include ('footer.html') %}
+    </body>
+</html>

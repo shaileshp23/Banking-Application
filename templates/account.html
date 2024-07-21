@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>New Account</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+        
+        <style>
+            body{
+                background-image: url("static/images/bgimg1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:cover;
+            }
+            
+            
+        </style>
+        <script type = "text/javascript" >  
+            function preventBack() { window.history.forward(); }  
+            setTimeout("preventBack()", 0);  
+            window.onunload = function () { null };  
+        </script>
+        
+    </head>
+    <body>
+
+    {% include ('layoutmenu.html') %}    
+
+
+        <br>
+        <div class="container-fluid">
+            <center>Welcome <strong>{{session.fname}} {{session.lname}} </strong>to Banking System</center>
+            <br>
+            
+        </div>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-3">
+                </div>
+                
+                <div class="col-sm-6">
+                    
+                        <center><h2>Account Opening Form</h2></center>
+                        <label style="color:rgb(225, 144, 144)">{{ msg }}</label>
+                        <form action="{{ url_for('account') }}" class="row g-3"  method="post">
+                        <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+                        <br>
+                        
+
+                        <div class="col-md-12">
+                            <label class="form-label">Name</label>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" id="fname" name="fname" class="form-control" value="{{session.fname}}" placeholder="First name" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" id="mname" name="mname" class="form-control" placeholder="Middle name" required>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="text" id="lname" name="lname" class="form-control" value="{{session.lname}}" placeholder="Last name" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label class="form-label">Address</label>
+                            <input type="text" id="addrs" name="addrs" class="form-control" placeholder="Address" required>
+                        </div>
+
+                        <div class="col-md-5">
+                            <label for="inputCity" class="form-label">City</label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="City" required>
+                        </div>
+    
+                        <div class="col-md-4">
+                            <label for="inputState" class="form-label">State</label>
+                            <input type="text" id="state" name="state" class="form-control" placeholder="State" required>
+                        </div>
+    
+                        <div class="col-md-3">
+                            <label for="inputZip" class="form-label">Pincode</label>
+                            <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode" required>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <label for="nominee">Nominee:</label>
+                            <input class="form-control"  type="text" name="nominee" placeholder="Nominee" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="account">Account Type:</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="atype" id="inlineRadio1" value="Saving">
+                                <label class="form-check-label" for="inlineRadio1">Saving</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="atype" id="inlineRadio1" value="Current">
+                                <label class="form-check-label" for="inlineRadio1">Current</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Contact number</label>
+                            <input type="text" id="phone" name="phone" class="form-control" value="{{session.phone}}" minlength="10" maxlength="10" placeholder="Contact number" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Email Id</label>
+                            <input type="email" id="emailid" name="emailid" class="form-control" value="{{session.emailid}}" placeholder="Email address" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="gender">Gender</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="Male">
+                                <label class="form-check-label" for="inlineRadio1">Male</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="Female">
+                                <label class="form-check-label" for="inlineRadio2">Female</label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="balance">Opening Balance:</label>
+                            <input class="form-control"  type="text" name="balance" placeholder="Opening Balance" required>
+                        </div>
+
+                        <center>        
+                        <button class="btn btn-primary  mb-2 mt-3" style="background-color:rgb(33,74,128);width:169px;border:none;color:white;padding:5px 10px 5px 10px;border-radius:2px;" type="submit">Submit</button>
+                        </center>
+                        
+                    </form>
+               
+                </div>
+
+                <div class="col-sm-3"></div>
+            </div>
+
+        </div>
+        {% include ('footer.html') %}
+    </body>
+</html>
+
+

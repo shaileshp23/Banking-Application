@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./Assets/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/backnext.js')}}"></script>
+    <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+    <title>Loan Calculator</title>
+    
+</head>
+
+<body>
+
+    {% include ('portalmenu.html') %}
+
+
+<br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card card-body text-center mt-5">
+                    <h1 class="heading display-5 pb-3">Loan Calculator</h1>
+                    <label style="color:rgb(225, 144, 144)">{{ msg }}</label>
+                    <form id="loan-form", action="{{ url_for('calloan') }}" method="post">
+                        <div class="form-group mt-3">
+                            <div class="input-group">
+                                <span class="input-group-text">Account Number</span>
+                                <input type="text" class="form-control" id="accno" name="accno" value="{{session.accno}}" placeholder="Account Number">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <div class="input-group">
+                                <span class="input-group-text">Amount $</span>
+                                <input type="number" class="form-control" id="amount" name="amount" value="{{session.amount}}" placeholder="Loan Amount">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <div class="input-group">
+                                <span class="input-group-text">Interest%</span>
+                                <input type="number" class="form-control" id="interest" name="interest" value="{{session.rate}}" placeholder="Interest">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <div class="input-group">
+                                <span class="input-group-text">Tenure</span>
+                                <input type="number" class="form-control" id="years" name="years" value="{{session.tenure}}" placeholder="Years to repay">
+                            </div>
+                        </div>
+                        <div class="form-group mt-3">
+                            <input type="button" value="Calculate" class="btn" onclick="calculateResults()">
+                        </div>
+                    
+
+                        <div id="loading">
+                            <div class="spinner-border spinner d-flex justify-content-center mx-auto mt-5" role="status">
+                            </div>
+                        </div>
+
+                        <div id="results" class="pt-4">
+                            <hr>
+                            <h5 class="text-center">Result</h5>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-text">Total Payment</span>
+                                    <input type="number" class="form-control" id="total-payment" name="totalpayment" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">Monthly Payment</span>
+                                    <input type="number" class="form-control" id="monthly-payment" name="monthlypayment" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">Total Interest</span>
+                                    <input type="number" class="form-control" id="total-interest" name="totalinterest" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <center>        
+                            <button class="btn btn-primary mt-3 mb-2 " style="background-color:rgb(33,74,128);width:169px;border:none;color:white;padding:5px 10px 5px 10px;border-radius:2px;" type="submit">Submit</button>
+                        </center>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+        {% include ('footer.html') %}
+</body>
+
+</html>

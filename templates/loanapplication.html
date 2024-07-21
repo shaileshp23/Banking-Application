@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Loan Application</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/slider.css')}}">
+        <style>
+            body{
+                background-image: url("static/images/bgimg1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:cover;
+            }
+        </style>
+    </head>
+    <body>
+
+        {% include ('layoutmenu.html') %}
+
+       
+<br>
+        <div class="container">
+        <div class="row mt-3">
+            <div class="col-3">
+            </div>
+            <div class="col-6">
+                <label style="color:rgb(225, 144, 144)">{{ msg }}</label>
+                <form action="{{ url_for('loanapplication') }}" class="row g-3" method="post">
+                    {% if mesage is defined and mesage %}
+                        <div class="alert alert-warning">{{ mesage }}</div>
+                    {% endif %}
+                    <br>
+                    <center>
+                        <h1 class="h3 mb-3 font-weight-normal">Application form</h1>
+                    </center>
+                    <div class="col-md-12">
+                        <label class="form-label">Account Number</label>
+                        <input class="text" id="accno" name="accno" class="form-control" value="{{session.accno}}" placeholder="Account number" required readonly>
+                    </div>
+                    <div class="col-md-12">
+                        <label class="form-label">Name</label>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" id="fname" name="fname" class="form-control" value="{{session.fname}}" placeholder="First name" required>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="mname" name="mname" class="form-control" value="{{session.mname}}" placeholder="Middle name" required>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" id="lname" name="lname" class="form-control" value="{{session.lname}}" placeholder="Last name" required>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <div class="col-md-6">
+                        <label class="form-label">Email Id</label>
+                        <input type="email" id="emailid" name="emailid" class="form-control" value="{{session.email}}" placeholder="Email address" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Contact number</label>
+                        <input type="text" id="phone" name="phone" class="form-control" value="{{session.phone}}" minlength="10" maxlength="10" placeholder="Contact number" required>
+                    </div>
+                        
+                    <div class="col-md-12">
+                        <label class="form-label">Address</label>
+                        <input type="text" id="addrs" name="addrs" class="form-control" value="{{session.addr}}" placeholder="Address" required>
+                    </div>
+                    
+                    <div class="col-md-5">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="city" name="city" value="{{session.city}}" placeholder="City" required>
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">State</label>
+                        <input type="text" id="state" name="state" class="form-control" value="{{session.state}}" placeholder="State" required>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="inputZip" class="form-label">Pincode</label>
+                        <input type="text" class="form-control" id="pincode" name="pincode" value="{{session.pincode}}" placeholder="Pincode" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="loan" class="form-label">Loan Type</label>
+                        <input class="form-control" list="loanlist" id="listloan" name="loantype" placeholder="Please select type" required>
+                        <datalist id="loanlist">
+                            <option value="Home Loan">
+                            <option value="Vehicle Loan">  
+                            <option value="Education Loan">
+                            <option value="Personal Loan">
+                        </datalist>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="amount" class="form-label">Loan Amount</label>
+                        <input type="text" class="form-control" id="amount" name="amount" placeholder="Enter amount" required>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <label for="loantenure">Loan Tenure (in Years)</label>
+                        <div class="slider">
+                            <input type="range" id="tenure" name="tenure" min="1" max="20" step="1" value="5" oninput="rangeValue.innerText = this.value">
+                            <p id="rangeValue">5</p>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                            <label class="form-check-label" for="flexCheckDefault">Agreed to these <a href="{{url_for('termsandconditions')}}" style="color:blue">Terms and Conditions</a></label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-12">
+                        <center>
+                            <button class="btn btn-lg btn-primary mb-3 mt-3" type="submit">Submit</button>
+                        </center>
+                    </div>
+                    
+                    
+                </form>
+                
+            </div>
+            <div class="col-3">
+            </div>
+        </div>	
+    </div>
+    {% include ('footer.html') %}
+    </body>
+</html>

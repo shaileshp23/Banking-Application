@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+ 
+{% block content %}
+
+
+        
+            <a class="bottom" href="{{ url_for('signin') }}"> Sign in </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="bottom" href="{{ url_for('signup') }}"> Sign up</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="bottom" href="{{ url_for('portallogin') }}"> Portal Login</a>
+
+{% endblock %}

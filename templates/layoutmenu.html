@@ -1,0 +1,56 @@
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark rounded">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('bankmain') }}" style="color: #fff;">Banking System</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar" aria-controls="collapsibleNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse justify-content-md-center" id="collapsibleNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">Transaction</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('account')}}">Open Account</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('dcheck')}}">Deposit</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('wcheck') }}">Withdraw</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('balcheck') }}">Balance Enquiry</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('minicheck') }}">Mini Statement</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('passcheck') }}">Passbook</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color:#fff">Account</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('checkchangepassword')}}">Change Password</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('accountupdatecheck') }}">Account Update</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('detailscheck') }}">Account Details</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="color: #fff;">Loans</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{{ url_for('homeloan')}}">Home Loan</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('personalloan')}}">Personal Loan</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('educationloan')}}">Education Loan</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('vehicleloan')}}">Vehicle Loan</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ url_for('loanapply')}}">Loan Application</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('loandownloadcheck')}}">View Loan Application</a></li>
+                                <li><a class="dropdown-item" href="{{ url_for('loanreceiptcheck')}}">Check Loans</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ url_for('contactus') }}" style="color: #fff">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-nav ms-auto" style="justify-content: flex-end;">
+                    <li class="nav-item">
+                        <a href="{{ url_for('logout') }}" style="color: #fff; text-decoration: none;">Logout</a>
+                    </li>
+                </div>
+            </div>
+        </nav>
+
+        {% block content %}{% endblock %}

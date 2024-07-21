@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Account Update</title>
+        <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
+        <style>
+            footer
+            {
+                position:center;
+                bottom: 0;
+                margin-top: 70%;
+            }
+        </style>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/backnext.js')}}"></script>
+    </head>
+    <body style="background-color:#f5f5f5">
+
+        {% include ('layoutmenu.html') %}
+
+        <button class="btn" onclick="previous()" id="backward"><i class="fa-solid fa-arrow-left fa-2xl"></i></button>
+        <button class="btn" onclick="next()" id="forward"><i class="fa-solid fa-arrow-right fa-2xl"></i></button>
+<br>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-3"> 
+                </div>
+                
+                <div class="col-sm-6">
+                    <h2><center>Account Update</center></h2>
+                    <label style="color:rgb(225, 144, 144)">{{ msg }}</label>
+                    <form action="{{ url_for('accountupdate') }}" 	method="post">
+                        <div class="illustration"><i class="icon ion-ios-locked-outline"></i>
+                        </div>
+                        <div class="form-group">
+                            <label for="accno">Account Number:</label>
+                            <input class="form-control"  type="text" name="accno" value="{{session['accno']}}" placeholder="Account Number" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input class="form-control"  type="text" name="fname" value="{{session['fname']}}" placeholder="First Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="mname">Middle Name:</label>
+                            <input class="form-control"  type="text" name="mname" value="{{session['mname']}}" placeholder="Middle Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input class="form-control"  type="text" name="lname" value="{{session['lname']}}" placeholder="Last Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="addrs">Address</label>
+                            <input class="form-control" type="text" name="addr" value="{{session['addr']}}" placeholder="Address">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input class="form-control" type="text" name="city" value="{{session['city']}}" placeholder="City">
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input class="form-control" type="text" name="state" value="{{session['state']}}" placeholder="State">
+                        </div>
+                        <div class="form-group" >
+                            <label for="nominee">Nominee</label>
+                            <input type="text" class="form-control" name="nominee" value="{{session['nominee']}}" placeholder="Nominee">
+                        </div>  
+                        <div class="form-group" >
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" name="phone" value="{{session['phone']}}" placeholder="Phone">
+                        </div>
+                        <div class="form-group" >
+                            <label for="emailid">Email id</label>
+                            <input type="email" class="form-control" name="emailid" value="{{session['email']}}" placeholder="Emailid">
+                        </div>
+                        <center>        
+                            <button class="btn btn-primary  mb-2 mt-3" style="background-color:rgb(33,74,128);width:169px;border:none;color:white;padding:5px 10px 5px 10px;border-radius:2px;" type="submit">Update</button>
+                        </center>
+                    </form>
+                </div>
+                
+                <div class="col-sm-3">
+                </div>
+            </div>
+        </div>
+        {% include ('footer.html') %}
+    </body>
+</html>

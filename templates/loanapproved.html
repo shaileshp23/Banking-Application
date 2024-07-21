@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Accounts</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/backnext.js')}}"></script>
+        <style>
+            footer
+            {
+                position:center;
+                bottom: 0;
+                margin-top: 70%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <img src="static/images/bank.jpg"  width="100%"  height="200px">    
+        </header>
+
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #306b9c;">
+            <div class="container-fluid">
+                <a href="{{url_for('portalindex')}}" class="navbar-brand" style="color:#fff">Banking System</a>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav">
+                        <a href="{{ url_for('portalaccounts') }}" class="nav-item nav-link active" style="color:#fff">Accounts</a>
+                        <a href="{{ url_for('portalusers') }}" class="nav-item nav-link active" style="color:#fff">Users</a>
+                        <a href="{{ url_for('portalpass') }}" class="nav-item nav-link active" style="color:#fff">Passbook</a>                      
+                        <div class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a href="{{ url_for('loggedout') }}" class="nav-item nav-link active" style="margin-right:100px; color:#fff"> Logout</a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <button class="btn" onclick="previous()" id="backward"><i class="fa-solid fa-arrow-left fa-2xl"></i></button>
+        <button class="btn" onclick="next()" id="forward"><i class="fa-solid fa-arrow-right fa-2xl"></i></button>
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <center><h2>Accounts</h2></center>
+                    <form action="{{ url_for('loanapproved') }}" method="post">
+                        <label style="color:rgb(225, 144, 144)">{{ msg }}</label>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Application Id</th>
+                                    <th>Accno</th>
+                                    <th>Applicant Name</th>                            
+                                    <th>Loan type</th>
+                                    <th>Amount</th>
+                                    <th>Tenure</th>
+                                    <th>Application Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for row in res %}
+                                <tr>
+                                    <th>{{ row.id }}</th>
+                                    <td>{{ row.accno }}</td>
+                                    <td>{{ row.fname }} {{ row.lname }}</td>
+                                    <td>{{ row.loantype }}</td>
+                                    <td>{{ row.amount }}</td>
+                                    <td>{{ row.tenure }}</td>
+                                    <td>{{ row.submitdate }}</td>
+                                    <td>{{ row.status }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <center>
+                <p>&copy2023<span style="color:red;">  All Rights Reserved</p>
+            </center>
+        </footer>
+    </body>
+</html>

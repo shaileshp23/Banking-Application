@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Personal Loan</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <script src="https://kit.fontawesome.com/40004fdddb.js" crossorigin="anonymous"></script>
+        <style>
+            body{
+                background-image: url("static/images/bgimg1.jpg");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size:cover;
+            }
+            .theme-color-blue-secondary {
+                background-color: #051e33;
+            }
+            .text-white {
+                color: #FFF !important;
+            }
+
+            .img-fluid{
+                height:auto;
+            }
+            
+            img{
+            vertical-align: middle;
+            }
+            
+            .big-heading-popularProduct {
+                text-align: left;
+                font: normal normal bold 24px/32px 'Montserrat', sans-serif;
+                letter-spacing: 0px;
+                color: #333333;
+                text-transform: uppercase;
+                opacity: 1;
+            }
+
+            label{
+                font: normal normal bold 16px/30px Open Sans;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+
+            .form-border{
+                border:1px solid #ADADAD;
+            }
+
+            .blue-secure-section {
+                background: #051E33 0% 0% no-repeat padding-box;
+                border-radius: 0px 0px 24px 0px;
+                opacity: 1;
+            }
+
+            .text-mute-type {
+                text-align: left;
+                font: normal normal normal 16px/28px Open Sans;
+                letter-spacing: 0px;
+                color: #FFFFFF;
+                opacity: 1;
+            }
+
+            .text-mute-type-dark {
+                text-align: left;
+                font: normal normal normal 16px/28px Open Sans;
+                letter-spacing: 0px;
+                color: #333333;
+                opacity: 1;
+            }
+
+            .tab-contet-botom-headin {
+                font: normal normal bold 24px/32px 'Montserrat', sans-serif !important;
+            }
+
+            .banner-left-text {
+                margin-top: 142px;
+            }
+            .top-small-banner-heading {
+                text-align: left;
+                font-size: 20px;
+                line-height: 24px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 800;
+                letter-spacing: 0px;
+                color: #333333;
+                opacity: 1;
+                margin-right: 15px;
+            }
+            .primary-text-color {
+                color: #0075be;
+            }
+        </style>
+        <link rel="shortcut icon" href="./Assets/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    </head>
+
+    <body>	
+        
+        {% include ('layoutmenu.html') %}
+
+        
+
+        <div class="container">
+
+            <br>
+
+            <div class="row">
+                <div class="col-4 order-2 left-text order-sm-2 order-md-2 order-lg-1 pl-0 pl-mob-grid banner-left-text">
+                    <div class="top-small-banner-heading">
+                        <h4>Know More About</h4>    
+                    </div>
+                    <br><br>
+                    <h1 id="banner-long-title" class="primary-text-color font-weight-bold text-uppercase" >Personal Loans</h1>
+                    <p class="mb-lg-5 mb-sm-3 text-justify">A bouquet of products that caters all your personal needs</p>
+                                      
+                </div>
+
+                <div class="col-8">
+                    <img class="img-fluid boder-img" src="static/images/loan.jpeg" width="100%" height="450px" style="float:right;margin-right:10px; border-bottom-right-radius: 100px;">
+                </div>
+
+            </div>
+
+            <br><br>
+
+            <div class="row">
+                <div class="col col-lg-6 col-sm-12 col-12 col-md-12">
+                    <div class="card border-0">
+                        <div class="card-body pb-0 pt-0 px-0">
+                            <h2 class="tabheadingmand tab-content-botom-headin my-3">Features</h2>
+                                    
+                            <ul class="pl-3 normal-text my-3">
+                                <li class="my-2">Easy documentation</li>
+                                <li class="my-2">EMI starts from Rs.1105/- per lakh</li>
+                                <li class="my-2">Maximum quantum up 36 times the gross monthly salary</li>
+                                <li class="my-2">Maximum repayment tenure up to 84 months</li>
+                                <li class="my-2">Attractive offers for Doctors, Government, PSU employees and salary account holders.</li>
+                                <li class="my-2">Approved schemes with tie up arrangements</li>
+                                <li class="my-2">Quick disposal of the loan (Very less turn around time)</li>
+                                <li class="my-2">Nil processing charges for differently abled customers.</li>
+                                <li class="my-2">Clean loan facility available without pledging of any security</li>
+                                <li class="my-2">Can avail more than one personal loan</li>
+                                <li class="my-2">0.50% interest concession to women beneficiaries</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mx-auto">
+                    <div class="card card-body text-center ">
+                        <h1 class="heading display-5 pb-3">Loan Calculator</h1>
+                        <form id="loan-form">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="amount" placeholder="Loan Amount">
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">%</span>
+                                    <input type="number" class="form-control" id="interest" value="10.25" placeholder="Interest" readonly>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="number" class="form-control" id="years" placeholder="Years to repay">
+                            </div>
+                            <div class="form-group mt-3">
+                                <input type="submit" value="Calculate" class="btn">
+                            </div>
+                        
+    
+                        <div id="loading">
+                            <div class="spinner-border spinner d-flex justify-content-center mx-auto mt-5" role="status">
+                            </div>
+                        </div>
+    
+                        <div id="results" class="pt-4">
+                            <hr>
+                            <h5 class="text-center">Result</h5>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span class="input-group-text">Total Payment</span>
+                                    <input type="number" class="form-control" id="total-payment" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">Monthly Payment</span>
+                                    <input type="number" class="form-control" id="monthly-payment" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group mt-3">
+                                <div class="input-group">
+                                    <span class="input-group-text">Total Interest</span>
+                                    <input type="number" class="form-control" id="total-interest" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <h2 class="big-heading-popularProduct mb-0">BENEFITS OF PERSONAL LOAN</h2>
+                    <p class="mb-lg-5 mb-sm-3 text-justify">Personal loans, at the very minimum, impose interest. We've carefully curated a series of personal loan products with more benefits to make your life easy. A personal loan, unlike a credit card, provides borrowers with a onetime cash payment.</p>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="flex-row theme-color-blue-secondary text-white pt-5 pb-5 border-img">
+                        <div class="d-flex justify-content-center flex-sm-column flex-md-column flex-lg-row flex-column">
+
+                            <div class="mx-3 text-center mb-4 mb-md-4 md-lg-0">
+                                <i class="fa-solid fa-percent fa-2xl"></i>
+                                <h3>Low Interest Rates</h3>
+                                <p>"Best class rates in the market"</p>
+                            </div>
+                        
+                    
+                            <div class="mx-3 text-center mb-4 mb-md-4 md-lg-0">
+                                <i class="fa-solid fa-indian-rupee-sign fa-2xl"></i>
+                                <h3>No Hidden Charges</h3>
+                                <p>Trouble Free Loan Closure</p>
+                            </div>
+
+                            <div class="mx-3 text-center mb-4 mb-md-4 md-lg-0">
+                                <i class="fa-regular fa-file fa-2xl"></i>
+                                <h3>Minimal Documentation</h3>
+                                <p>"Get your loan with less paper work"</p>
+                            </div>
+
+                            <div class="mx-3 text-center mb-4 mb-md-4 md-lg-0">
+                                <i class="fa-regular fa-hand-pointer fa-2xl"></i>
+                                <br>
+                                <h3>Apply Online</h3>
+                                <p>"Finish up the process in 15 minutes"</p>
+                            </div>
+
+                        </div>
+                    </div>
+ 
+                </div>
+
+            </div>
+            {% include ('footer.html') %}
+        </div>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/calculation.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    </body>
+</html>
+
+
+
+
+

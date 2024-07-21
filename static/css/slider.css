@@ -1,0 +1,13 @@
+.slider {
+    padding: auto;
+    border-radius: 20px;
+    display: flex;
+    }
+    .slider p {
+    font-size: auto;
+    font-weight: 600;
+    font-family: Open Sans;
+    padding-left: auto;
+    color: black;
+    }
+    
